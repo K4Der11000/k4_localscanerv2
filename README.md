@@ -10,7 +10,7 @@ This project is a web application built with Flask to scan vulnerabilities on we
 
 1. Clone the repository:
    ```bash
-   git ..url 👆👆
+  👉  git clone https://github.com/K4Der11000/k4_localscanerv2.git
 2. Install required dependencies:
 
 pip install -r requirements.txt
