@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vulnerability Scanner</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        kader11000
+    </header>
+    
+    <section>
+        <h2>CMS & OS Targeted Scan</h2>
+        <form onsubmit="runCMSScan(); return false;">
+            <label>Target IP/Domain:</label>
+            <input type="text" id="cms_target" placeholder="e.g., example.com" required />
+            
+            <label>Select CMS:</label>
+            <select id="cms_type">
+                <option value="wordpress">WordPress</option>
+                <option value="joomla">Joomla</option>
+                <option value="drupal">Drupal</option>
+            </select>
+            
+            <label>Target OS:</label>
+            <select id="target_os">
+                <option value="linux">Linux</option>
+                <option value="windows">Windows</option>
+                <option value="unknown">Unknown</option>
+            </select>
+
+            <button type="submit">Start Scan</button>
+        </form>
+        <textarea id="cms_scan_result" rows="10" cols="80" placeholder="Scan results will appear here..."></textarea>
+    </section>
+
+    <script>
+        function runCMSScan() {
+            const data = new URLSearchParams();
+            data.append("target", document.getElementById("cms_target").value);
+            data.append("cms", document.getElementById("cms_type").value);
+            data.append("os", document.getElementById("target_os").value);
+
+            fetch('/cms_scan', {
+                method: 'POST',
+                body: data
+            })
+            .then(res => res.text())
+            .then(data => document.getElementById("cms_scan_result").value = data);
+        }
+    </script>
+</body>
+</html>
