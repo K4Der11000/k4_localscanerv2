@@ -10,8 +10,7 @@ This project is a web application built with Flask to scan vulnerabilities on we
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/vulnerability-scanner.git
-
+   git ..url 👆👆
 2. Install required dependencies:
 
 pip install -r requirements.txt
