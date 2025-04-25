@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+    <div class="login-box">
+        <h1 style="text-align: center; font-family: monospace; font-size: 32px; color: #00ff99;">kader11000</h1>
+        <form method="POST">
+            <input type="password" name="password" placeholder="Enter password" required />
+            <button type="submit">Enter</button>
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+</body>
+</html>
